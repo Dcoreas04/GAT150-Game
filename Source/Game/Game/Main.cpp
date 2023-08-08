@@ -68,6 +68,10 @@ void print_arg(int count, ...)
 	va_end(args);
 }
 
+void zero(int x)
+{
+	x = 0;
+}
 
 int main(int argc, char* argv[])
 {
