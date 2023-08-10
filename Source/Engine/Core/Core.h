@@ -7,7 +7,8 @@
 #include "Time.h"
 
 // math
-#include "Color.h"
-#include "Vector2.h"
-#include "Transform.h"
-#include "MathUtils.h"
+#include "Core/Math/Vector3.h"
+#include "Core/Math/Vector2.h"
+#include "Core/Math/Transform.h"
+#include "Core/Math/MathUtils.h"
+#include "Core/Math/Color.h"

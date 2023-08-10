@@ -1,5 +1,4 @@
 #include "ModelManager.h"
-
 namespace kiko
 {
 	ModelManager g_manager;

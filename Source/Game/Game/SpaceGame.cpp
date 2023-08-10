@@ -1,17 +1,13 @@
 #include "SpaceGame.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "Renderer/Font.h"
-#include "Framework/Scene.h"
-#include "Framework/Resource/ResourceManager.h"
-#include "Framework/Components/SpriteComponent.h"
-#include "Framework/Components/EnginePhysicsComponent.h"
+
+#include "Core/Math/Color.h"
+#include "Framework/Framework.h"
+#include "Renderer/Renderer.h"
+#include "Framework/Components/ModelRenderComponent.h"
 #include "Audio/AudioSystem.h"
 #include "Input/InputSystem.h"
-#include "Renderer/Renderer.h"
-#include "Renderer/Text.h"
-#include "Renderer/ModelManager.h"
-
 bool SpaceGame::Initialize()
 {
 	// create font / text object
@@ -64,9 +60,10 @@ void SpaceGame::Update(float dt)
 		std::unique_ptr<Player> player = std::make_unique<Player>(20.0f, kiko::Pi, kiko::Transform{ { 400, 300 }, 0, 6 });
 		player->m_tag = "Player";
 		player->m_game = this;
+
 		// Create Components
-		std::unique_ptr<kiko::SpriteComponent> component = std::make_unique<kiko::SpriteComponent>();
-		component->m_texture = kiko::g_resourceM.Get<kiko::Texture>("Ship_2_D_Small.png", kiko::g_renderer);
+		std::unique_ptr<kiko::ModelRenderComponent> component = std::make_unique<kiko::ModelRenderComponent>();
+		component->m_model = kiko::g_resourceM.Get<kiko::Model>("ship.txt", kiko::g_renderer);
 		player->AddComponents(std::move(component));
 		
 		auto physicsComponent = std::make_unique<kiko::EnginePhysicsComponent>();

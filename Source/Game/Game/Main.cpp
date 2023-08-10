@@ -1,13 +1,9 @@
 #include "Core/Core.h"
 #include "Renderer/Renderer.h"
-#include "Renderer/ModelManager.h"
 #include "Input/InputSystem.h"
 #include "Audio/AudioSystem.h"
-#include "Framework/Scene.h"
-#include "Framework/Emitter.h"
-#include "Framework/Resource/ResourceManager.h"
-#include "Renderer/Text.h"
-#include "Renderer/ParticleSystem.h"
+#include "Framework/Framework.h"
+
 #include "Player.h"
 #include "Enemy.h"
 #include "SpaceGame.h"
@@ -16,8 +12,7 @@
 #include <thread>
 #include <array>
 #include <map>
-#include <Renderer/Texture.h>
-#include <Renderer/Renderer.cpp>
+
 
 using namespace std;
 
@@ -46,37 +41,8 @@ public:
 	kiko::vec2 m_vel;
 };
 
-template <typename T>
-void print(const std::string& s, const T& container)
-{
-	std::cout << s << std::endl;
-		for (auto element : container)
-		{
-			std::cout << element << " ";
-		}
-	std::cout << std::endl;
-}
-void print_arg(int count, ...)
-{
-	va_list args;
-
-	va_start(args, count);
-	for (int i = 0; i < count; ++i)
-	{
-		std::cout << va_arg(args, const char*) << std::endl;
-	}
-	va_end(args);
-}
-
-void zero(int x)
-{
-	x = 0;
-}
-
 int main(int argc, char* argv[])
 {
-	print_arg(3, "hello", "world", "goodbye");
-
 	INFO_LOG("Hello World");
 
 	kiko::MemoryTracker::Initialize();

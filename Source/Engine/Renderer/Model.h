@@ -1,10 +1,10 @@
 #pragma once
-#include "Core/Core.h"
-#include "Renderer.h" 
+#include "Core/Core.h" 
 #include <vector>
-#include "Framework/Resource.h"
+#include "Framework/Resource/Resource.h"
 namespace kiko
 {
+	class Renderer;
 	class Model : public Resource
 	{
 	public:
@@ -22,6 +22,5 @@ namespace kiko
 		std::vector<vec2> m_points;
 		Color m_color;
 		float m_radius = 0;
-
 	};
 }

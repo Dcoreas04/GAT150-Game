@@ -1,5 +1,5 @@
 #include "Particle.h"
-
+#include "renderer.h"
 void kiko::Particle::Update(float dt)
 {
 	m_data.lifetimer += dt;
